@@ -14,6 +14,15 @@ provider "azurerm" {
   features {}
 }
 
+locals {
+  platform_tags = {
+    environment = "demo"
+    workspace   = terraform.workspace
+    layer       = "platform"
+    managed_by  = "terraform"
+  }
+}
+
 variable "location" {
   description = "Azure region."
   type        = string
